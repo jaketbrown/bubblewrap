@@ -1,0 +1,5 @@
+project: bubblewrap
+target: bubblewrap-fuzz
+
+cmds:
+  - cmd: /bwrap --ro-bind /usr /usr --symlink usr/lib64 /lib64 --proc /proc --dev /dev --unshare-pid --new-session bash
