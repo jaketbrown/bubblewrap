@@ -5,9 +5,8 @@ RUN apt update && \
 
 COPY . /src
 WORKDIR /src
-RUN env NOCONFIGURE=1 ./autogen.sh
-RUN make
-RUN make install
+RUN ./autogen.sh && make && make install
+RUN ls -l
 
 FROM --platform=linux/amd64 ubuntu:22.04
 COPY --from=builder /src /
