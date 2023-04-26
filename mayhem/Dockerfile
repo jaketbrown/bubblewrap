@@ -1,7 +1,7 @@
-FROM --platform=linux/amd64 ubuntu:20.04 as builder
+FROM --platform=linux/amd64 ubuntu:22.04 as builder
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y gcc autoconf pkg-config libpcap-dev
+RUN apt update && \
+    DEBIAN_FRONTEND=noninteractive apt install -y gcc autoconf pkg-config libcap-dev
 
 COPY . /src
 WORKDIR /src
@@ -9,5 +9,5 @@ RUN ./autogen.sh
 RUN make
 RUN sudo make install
 
-FROM --platform=linux/amd64 ubuntu:20.04
+FROM --platform=linux/amd64 ubuntu:22.04
 COPY --from=builder /src /
