@@ -2,4 +2,4 @@ project: bubblewrap
 target: bubblewrap-fuzz
 
 cmds:
-  - cmd: /bwrap
+  - cmd: /bwrap bash
